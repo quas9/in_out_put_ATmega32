@@ -9,14 +9,14 @@
 .def FULL = R24
 
 .org $000
- JMP reset ; Указатель на начало программы
+ JMP reset ; РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РїСЂРѕРіСЂР°РјРјС‹
 .org INT0addr
- JMP int_1 ; Указатель на обработчик прерывания int0
+ JMP int_1 ; РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЂР°Р±РѕС‚С‡РёРє РїСЂРµСЂС‹РІР°РЅРёСЏ int0
 .org INT1addr
- JMP int_0 ; Указатель на обработчик прерывания int1
+ JMP int_0 ; РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЂР°Р±РѕС‚С‡РёРє РїСЂРµСЂС‹РІР°РЅРёСЏ int1
 
 reset:
-	; настройка исходных значений
+	; РЅР°СЃС‚СЂРѕР№РєР° РёСЃС…РѕРґРЅС‹С… Р·РЅР°С‡РµРЅРёР№
 	 CLR NULL ; 0x00
 	 SER FULL ; 0xFF 
 	 CLR OP ; 0x00
@@ -25,26 +25,26 @@ reset:
 	 CLR R25
 	 LDI FLAG, 0x01
  
-	; настройка портов ввода-выводау
+	; РЅР°СЃС‚СЂРѕР№РєР° РїРѕСЂС‚РѕРІ РІРІРѕРґР°-РІС‹РІРѕРґР°Сѓ
 
-	 OUT DDRA, FULL ; Вывод
-	 OUT DDRB, FULL ; Вывод
-	 OUT DDRC, NULL ; Ввод
+	 OUT DDRA, FULL ; Р’С‹РІРѕРґ
+	 OUT DDRB, FULL ; Р’С‹РІРѕРґ
+	 OUT DDRC, NULL ; Р’РІРѕРґ
 	 LDI TMP, 0x53	 
-	 OUT DDRD, TMP ; 7,3,2 - ввод
+	 OUT DDRD, TMP ; 7,3,2 - РІРІРѕРґ
 
-	; Установка вершины стека в конец ОЗУ
-	 LDI TMP, HIGH(RAMEND) ; Старшие разряды адреса
+	; РЈСЃС‚Р°РЅРѕРІРєР° РІРµСЂС€РёРЅС‹ СЃС‚РµРєР° РІ РєРѕРЅРµС† РћР—РЈ
+	 LDI TMP, HIGH(RAMEND) ; РЎС‚Р°СЂС€РёРµ СЂР°Р·СЂСЏРґС‹ Р°РґСЂРµСЃР°
 	 OUT SPH, TMP
-	 LDI TMP, LOW(RAMEND) ; Младшие разряды адреса
+	 LDI TMP, LOW(RAMEND) ; РњР»Р°РґС€РёРµ СЂР°Р·СЂСЏРґС‹ Р°РґСЂРµСЃР°
 	 OUT SPL, TMP
 	 SER R16
 	 LDI R16, 0x0F
-	 OUT MCUCR, R16 ; Настройка прерываний int0 и int1 на условие 0/1
+	 OUT MCUCR, R16 ; РќР°СЃС‚СЂРѕР№РєР° РїСЂРµСЂС‹РІР°РЅРёР№ int0 Рё int1 РЅР° СѓСЃР»РѕРІРёРµ 0/1
 	 LDI R16, 0xC0
-	 OUT GICR, R16 ; Разрешение прерываний int0 и int1
-	 OUT GIFR, R16 ; Предотвращение срабатывания int0 и int1 привключении прерываний
- SEI ; Включение прерываний
+	 OUT GICR, R16 ; Р Р°Р·СЂРµС€РµРЅРёРµ РїСЂРµСЂС‹РІР°РЅРёР№ int0 Рё int1
+	 OUT GIFR, R16 ; РџСЂРµРґРѕС‚РІСЂР°С‰РµРЅРёРµ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ int0 Рё int1 РїСЂРёРІРєР»СЋС‡РµРЅРёРё РїСЂРµСЂС‹РІР°РЅРёР№
+ SEI ; Р’РєР»СЋС‡РµРЅРёРµ РїСЂРµСЂС‹РІР°РЅРёР№
 
 read_eeprom:
 	SBIC EECR,EEWE
@@ -73,9 +73,9 @@ light_mode1:
 	LDI TEMP, 0xFF
     OUT PORTA, TEMP
 	out PORTB, NULL
-	LDI TEMP, 0x11  ; режим горения 2
+	LDI TEMP, 0x11  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 2
 	out PORTD, TEMP
-    call delay; Задержка перед сменой состояния
+    call delay; Р—Р°РґРµСЂР¶РєР° РїРµСЂРµРґ СЃРјРµРЅРѕР№ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 	CALL delay
 	CALL delay
 	CALL delay
@@ -83,7 +83,7 @@ light_mode1:
     OUT PORTA, TEMP
     out PORTA, NULL
 	out PORTB, TEMP
-	LDI TEMP, 0x01  ; режим горения 2
+	LDI TEMP, 0x01  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 2
 	out PORTD, TEMP
 	call delay
 	CALL delay
@@ -97,24 +97,24 @@ light_mode1:
 change:
     call write_eeprom
 	ldi TMP, 0X01
-	LDI TEMP, 0x01 ; режим горения 1
-	CP FLAG, TMP    ; сравниваем, равно ли 1 режиму
-    out PORTD, TEMP ; выводим
-    CP FLAG, TMP    ; сравниваем, равно ли 1 режиму
+	LDI TEMP, 0x01 ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 1
+	CP FLAG, TMP    ; СЃСЂР°РІРЅРёРІР°РµРј, СЂР°РІРЅРѕ Р»Рё 1 СЂРµР¶РёРјСѓ
+    out PORTD, TEMP ; РІС‹РІРѕРґРёРј
+    CP FLAG, TMP    ; СЃСЂР°РІРЅРёРІР°РµРј, СЂР°РІРЅРѕ Р»Рё 1 СЂРµР¶РёРјСѓ
 	BREQ light_mode1  
 
 	ldi TMP, 0X02
-	LDI TEMP, 0x02  ; режим горения 2
-	CP FLAG, TMP    ; сравниваем, равно ли 1 режиму
-    out PORTD, TEMP ; выводим
-    CP FLAG, TMP    ; сравниваем, равно ли 2 режиму
+	LDI TEMP, 0x02  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 2
+	CP FLAG, TMP    ; СЃСЂР°РІРЅРёРІР°РµРј, СЂР°РІРЅРѕ Р»Рё 1 СЂРµР¶РёРјСѓ
+    out PORTD, TEMP ; РІС‹РІРѕРґРёРј
+    CP FLAG, TMP    ; СЃСЂР°РІРЅРёРІР°РµРј, СЂР°РІРЅРѕ Р»Рё 2 СЂРµР¶РёРјСѓ
 	BREQ light_mode2
 
 	ldi TMP, 0X03
-	LDI TEMP, 0x03  ; режим горения 3
-	CP FLAG, TMP    ; сравниваем, равно ли 1 режиму
-    out PORTD, TEMP ; выводим
-    CP FLAG, TMP    ; сравниваем, равно ли 3 режиму
+	LDI TEMP, 0x03  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 3
+	CP FLAG, TMP    ; СЃСЂР°РІРЅРёРІР°РµРј, СЂР°РІРЅРѕ Р»Рё 1 СЂРµР¶РёРјСѓ
+    out PORTD, TEMP ; РІС‹РІРѕРґРёРј
+    CP FLAG, TMP    ; СЃСЂР°РІРЅРёРІР°РµРј, СЂР°РІРЅРѕ Р»Рё 3 СЂРµР¶РёРјСѓ
 	BREQ light_mode3
 	LDI Y_1, 0xAA
 	LDI FLAG, 0x01
@@ -122,7 +122,7 @@ change:
 	jmp light_mode1
 	
 light_mode2:
-	call delay; Задержка перед сменой состояния
+	call delay; Р—Р°РґРµСЂР¶РєР° РїРµСЂРµРґ СЃРјРµРЅРѕР№ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 	CALL delay
 	CALL delay
 	CALL delay
@@ -132,10 +132,10 @@ light_mode2:
 	LDI TEMP, 0x55
 	out PORTB, TEMP
 
-	LDI TEMP, 0x12  ; режим горения 2
+	LDI TEMP, 0x12  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 2
 	out PORTD, TEMP
 
-    call delay; Задержка перед сменой состояния
+    call delay; Р—Р°РґРµСЂР¶РєР° РїРµСЂРµРґ СЃРјРµРЅРѕР№ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 	CALL delay
 	CALL delay
 	CALL delay
@@ -145,23 +145,23 @@ light_mode2:
 	LDI TEMP, 0x55
 	out PORTA, TEMP
 
-	LDI TEMP, 0x02  ; режим горения 2
+	LDI TEMP, 0x02  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 2
 	out PORTD, TEMP
 	LDI TEMP, 0x02
 	CP FLAG, TEMP
 	brne change
 	jmp light_mode2
 
-light_mode3: ; считывание операнда
-	CALL delay      ; ожидание нажатия комбинации кнопок
+light_mode3: ; СЃС‡РёС‚С‹РІР°РЅРёРµ РѕРїРµСЂР°РЅРґР°
+	CALL delay      ; РѕР¶РёРґР°РЅРёРµ РЅР°Р¶Р°С‚РёСЏ РєРѕРјР±РёРЅР°С†РёРё РєРЅРѕРїРѕРє
 	CALL delay
 	CALL delay
 	CALL delay
 
-	IN TEMP, PIND   ; считываем значение из PORTD
+	IN TEMP, PIND   ; СЃС‡РёС‚С‹РІР°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· PORTD
 	ldi TMP, 0X23
     CP TEMP, TMP
-	BREQ stop_pd7 ; выполнение операции
+	BREQ stop_pd7 ; РІС‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёРё
 
 	ldi TMP, 0X83
     CP TEMP, TMP
@@ -174,35 +174,35 @@ light_mode3: ; считывание операнда
 	jmp j_standart
 
 stop_pd7:
-	CALL delay      ; ожидание нажатия комбинации кнопок
+	CALL delay      ; РѕР¶РёРґР°РЅРёРµ РЅР°Р¶Р°С‚РёСЏ РєРѕРјР±РёРЅР°С†РёРё РєРЅРѕРїРѕРє
 	CALL delay
 	CALL delay
 	CALL delay
-	IN TEMP, PIND   ; считываем значение из PORTC
+	IN TEMP, PIND   ; СЃС‡РёС‚С‹РІР°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· PORTC
 	ldi TMP, 0X23
 	LDI R26, 0x01
     CP TEMP, TMP
 	BRNE light_mode3
-	IN TEMP, PINC   ; считываем значение из PORTC
-	CPSE TEMP, NULL ; пропускаем, если равно 0(т.е ничего не считано - ничего не записываем)
-	mov Y_1 , TEMP  ; если не равно нулю - записываем как Y
+	IN TEMP, PINC   ; СЃС‡РёС‚С‹РІР°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· PORTC
+	CPSE TEMP, NULL ; РїСЂРѕРїСѓСЃРєР°РµРј, РµСЃР»Рё СЂР°РІРЅРѕ 0(С‚.Рµ РЅРёС‡РµРіРѕ РЅРµ СЃС‡РёС‚Р°РЅРѕ - РЅРёС‡РµРіРѕ РЅРµ Р·Р°РїРёСЃС‹РІР°РµРј)
+	mov Y_1 , TEMP  ; РµСЃР»Рё РЅРµ СЂР°РІРЅРѕ РЅСѓР»СЋ - Р·Р°РїРёСЃС‹РІР°РµРј РєР°Рє Y
 	mov Y_2,  TEMP
 	rjmp stop_pd7
 
 stop_pd7_2:
-	CALL delay      ; ожидание нажатия комбинации кнопок
+	CALL delay      ; РѕР¶РёРґР°РЅРёРµ РЅР°Р¶Р°С‚РёСЏ РєРѕРјР±РёРЅР°С†РёРё РєРЅРѕРїРѕРє
 	CALL delay
 	CALL delay
 	CALL delay
 
-	IN TEMP, PIND   ; считываем значение из PORTC
+	IN TEMP, PIND   ; СЃС‡РёС‚С‹РІР°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· PORTC
 	ldi TMP, 0X83
 	LDI R26, 0x02
     CP TEMP, TMP
 	BRNE light_mode3
-	IN TEMP, PINC   ; считываем значение из PORTC
-	CPSE TEMP, NULL ; пропускаем, если равно 0(т.е ничего не считано - ничего не записываем)
-	mov Y_1 , TEMP  ; если не равно нулю - записываем как Y
+	IN TEMP, PINC   ; СЃС‡РёС‚С‹РІР°РµРј Р·РЅР°С‡РµРЅРёРµ РёР· PORTC
+	CPSE TEMP, NULL ; РїСЂРѕРїСѓСЃРєР°РµРј, РµСЃР»Рё СЂР°РІРЅРѕ 0(С‚.Рµ РЅРёС‡РµРіРѕ РЅРµ СЃС‡РёС‚Р°РЅРѕ - РЅРёС‡РµРіРѕ РЅРµ Р·Р°РїРёСЃС‹РІР°РµРј)
+	mov Y_1 , TEMP  ; РµСЃР»Рё РЅРµ СЂР°РІРЅРѕ РЅСѓР»СЋ - Р·Р°РїРёСЃС‹РІР°РµРј РєР°Рє Y
 	mov Y_2,  TEMP
 	rjmp stop_pd7_2
 j_v_1:
@@ -225,7 +225,7 @@ j_standart:
 	jmp all
 
 all:
-	LDI TEMP, 0x13  ; режим горения 1
+	LDI TEMP, 0x13  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 1
 	out PORTD, TEMP
 
 	out PORTA, Y_1
@@ -239,7 +239,7 @@ all:
 	out PORTA, Y_2
 	out PORTB, Y_1
 	
-	LDI TEMP, 0x03  ; режим горения 2
+	LDI TEMP, 0x03  ; СЂРµР¶РёРј РіРѕСЂРµРЅРёСЏ 2
 	out PORTD, TEMP
 	call write_eeprom
 	LDI TEMP, 0x03	
