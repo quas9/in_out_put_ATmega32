@@ -1,0 +1,49 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega32"</DEVICE>
+ <WORKING_DIR>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/AtmelStudio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\AtmelStudio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/AtmelStudio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m32def.inc</FILE>
+  <FILE>C:/AtmelStudio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M32DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\Debug\AssemblerApplication1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication1.map</FILE>
+  <FILE>AssemblerApplication1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>18</LINE></reset>
+  <int_1><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>270</LINE></int_1>
+  <int_0><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>254</LINE></int_0>
+  <read_eeprom><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>49</LINE></read_eeprom>
+  <read_eeprom_y><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>61</LINE></read_eeprom_y>
+  <change><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>97</LINE></change>
+  <light_mode1><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>72</LINE></light_mode1>
+  <delay><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>312</LINE></delay>
+  <write_eeprom><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>286</LINE></write_eeprom>
+  <light_mode2><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>124</LINE></light_mode2>
+  <light_mode3><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>155</LINE></light_mode3>
+  <stop_pd7><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>176</LINE></stop_pd7>
+  <stop_pd7_2><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>192</LINE></stop_pd7_2>
+  <j_v_1><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>208</LINE></j_v_1>
+  <j_m_2><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>214</LINE></j_m_2>
+  <j_standart><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>220</LINE></j_standart>
+  <all><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>227</LINE></all>
+  <change_1><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>250</LINE></change_1>
+  <intr_int0><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>264</LINE></intr_int0>
+  <intr_int1><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>280</LINE></intr_int1>
+  <write_eeprom_y><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>299</LINE></write_eeprom_y>
+  <delay_sub><FILE>C:\Users\79312\Desktop\асвт\lab 2\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>316</LINE></delay_sub>
+ </LABELS>
+</ASSEMBLER_INFO>
